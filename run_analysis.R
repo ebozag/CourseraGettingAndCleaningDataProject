@@ -59,6 +59,9 @@ if (!file.exists("UCI HAR Dataset")) {
  unzip(datasetFile) 
 }
    
-### Read the file into a df
-
-### Convert the df into a tdf
+### Read the files with Activity Labels and Features
+### Convert to tbl_dt
+dataTable <- read.table("UCI HAR Dataset/activity_labels.txt")
+activities <- tbl_dt(dataTable)
+dataTable <- read.table("UCI HAR Dataset/features.txt")
+features <- tbl_dt(dataTable)
