@@ -65,3 +65,23 @@ dataTable <- read.table("UCI HAR Dataset/activity_labels.txt")
 activities <- tbl_dt(dataTable)
 dataTable <- read.table("UCI HAR Dataset/features.txt")
 features <- tbl_dt(dataTable)
+
+### Read the files with datasets
+### Convert to tbl_dt and join them
+dataTable <- read.table("UCI HAR Dataset/train/X_train.txt")
+training <- tbl_dt(dataTable)
+dataTable <- read.table("UCI HAR Dataset/train/y_train.txt")
+training <- cbind("Activity" = tbl_dt(dataTable), training)
+dataTable <- read.table("UCI HAR Dataset/train/subject_train.txt")
+training <- cbind("Subject" = tbl_dt(dataTable), training)
+
+dataTable <- read.table("UCI HAR Dataset/test/X_test.txt")
+testing <- tbl_dt(dataTable)
+dataTable <- read.table("UCI HAR Dataset/test/y_test.txt")
+testing <- cbind("Activity" = tbl_dt(dataTable), testing)
+dataTable <- read.table("UCI HAR Dataset/test/subject_test.txt")
+testing <- cbind("Subject" = tbl_dt(dataTable), testing)
+
+
+head(testing)
+
