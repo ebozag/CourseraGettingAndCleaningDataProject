@@ -49,3 +49,6 @@ dataset <- select(dataset, Subject, Activity, contains("Mean"), contains("STD"))
 ### Group by Activity and Subject
 byActivitySubject <- group_by(dataset, Activity, Subject)
 tidy <- summarise_each(byActivitySubject,funs(mean))
+
+### Write tidy dataset to a file
+write.table(tidy, "tidy.txt", row.names = FALSE, quote = FALSE)
