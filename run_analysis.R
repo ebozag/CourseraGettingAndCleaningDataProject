@@ -71,17 +71,16 @@ features <- tbl_dt(dataTable)
 dataTable <- read.table("UCI HAR Dataset/train/X_train.txt")
 training <- tbl_dt(dataTable)
 dataTable <- read.table("UCI HAR Dataset/train/y_train.txt")
-training <- cbind("Activity" = tbl_dt(dataTable), training)
+training <- cbind("Activity" = tbl_dt(activities$V2[dataTable$V1]), training)
 dataTable <- read.table("UCI HAR Dataset/train/subject_train.txt")
 training <- cbind("Subject" = tbl_dt(dataTable), training)
 
 dataTable <- read.table("UCI HAR Dataset/test/X_test.txt")
 testing <- tbl_dt(dataTable)
 dataTable <- read.table("UCI HAR Dataset/test/y_test.txt")
-testing <- cbind("Activity" = tbl_dt(dataTable), testing)
+testing <- cbind("Activity" = tbl_dt(activities$V2[dataTable$V1]), testing)
 dataTable <- read.table("UCI HAR Dataset/test/subject_test.txt")
 testing <- cbind("Subject" = tbl_dt(dataTable), testing)
-
 
 head(testing)
 
